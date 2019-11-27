@@ -5,6 +5,7 @@ try:
 except FileNotFoundError:
     phonebook = {}
 
+
 def _contact_exists(message, g):
     def decorator(f):
         def wrapper(name, *args):
@@ -13,6 +14,7 @@ def _contact_exists(message, g):
             return f(name, *args)
         return wrapper
     return decorator
+
 
 contact_exists = _contact_exists("Contact doesn't exist", lambda x: x)
 contact_not_exists = _contact_exists("Contact already exists", lambda x: not x)
